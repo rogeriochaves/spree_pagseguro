@@ -14,5 +14,4 @@ Gem::Specification.new do |s|
   s.has_rdoc      = false
 
   s.add_dependency('spree_core', '>=0.40.3')
-  s.add_dependency('pagseguro', '>=0.1.12')
 end
