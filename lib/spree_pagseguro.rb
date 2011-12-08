@@ -10,8 +10,10 @@ module SpreePagseguro
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
-
-      PaymentMethod::Pagseguro.register
+    end
+    
+    config.after_initialize do |app|
+      app.config.spree.payment_methods += [PaymentMethod::Pagseguro]
     end
 
     config.to_prepare &method(:activate).to_proc

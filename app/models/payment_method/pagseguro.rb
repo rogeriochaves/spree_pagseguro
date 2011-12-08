@@ -1,3 +1,2 @@
-class PaymentMethod::Pagseguro < PaymentMethod
-  
+class PaymentMethod::Pagseguro < Spree::PaymentMethod
 end
