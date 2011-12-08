@@ -1,0 +1,20 @@
+%form{action: PagSeguro.gateway_url, class: "pagseguro", method: "post"}
+  = hidden_field_tag "encoding", "UTF-8"
+  = hidden_field_tag "email_cobranca", PagSeguro.config["email"]
+  = hidden_field_tag "tipo", "CP"
+  = hidden_field_tag "moeda", "BRL"
+  = hidden_field_tag "ref_transacao", order.id
+
+  - order.products.each_with_index do |product, i|
+    = hidden_field_tag "item_quant_#{i+1}", product[:quantity]
+    = hidden_field_tag "item_id_#{i+1}", product[:id]
+    = hidden_field_tag "item_descr_#{i+1}", product[:description]
+    = hidden_field_tag "item_valor_#{i+1}", product[:price]
+
+  - order.billing.each do |name, value|
+    = hidden_field_tag PagSeguro::Order::BILLING_MAPPING[name.to_sym], value
+
+  = image_submit_tag "buy_with_pagseguro.png"
+  %p Ao clicar em “Comprar com Pagseguro” você será redirecionado ao site PagSeguro para concluir a sua compra.
+  %br
+.cancel_invoice= link_to "Cancelar compra", client_invoice_path(current_client, order.id), method: "delete", confirm: "Tem certeza que deseja cancelar esta compra?"
