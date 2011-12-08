@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_pagseguro'
-  s.version     = '0.0.5'
+  s.version     = '0.0.6'
   s.summary     = 'Adds PagSeguro as a Payment Method to Spree store'
   s.homepage    = ''
-  s.author      = 'Luiz Signorelli'
-  s.email       = 'luiz.sg@gmail.com'
+  s.author      = 'Stefano Diem benatti'
+  s.email       = 'stefano@heavenstudio.com.br'
   s.required_ruby_version = '>= 1.8.7'
 
   s.files         = `git ls-files`.split("\n")
@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.has_rdoc      = false
 
   s.add_dependency('spree_core', '>=0.40.3')
+  s.add_dependency('pagseguro', '>=0.1.12')
 end
