@@ -2,5 +2,9 @@ source 'http://rubygems.org'
 
 gemspec
 
-gem 'spree_core', '>=0.40.3'
-gem 'pagseguro', '~> 0.1.12'
+gem 'sqlite3'
+gem 'rails'
+gem 'rspec-rails'
+gem 'factory_girl'
+gem 'fakeweb'
+gem 'spree', git: 'git://github.com/spree/spree.git'

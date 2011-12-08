@@ -5,7 +5,7 @@ require File.expand_path("../test_app/config/environment", __FILE__)
 require 'rspec/rails'
 
 #include spree's factories
-require 'spree_core/testing_support/factories'
+require 'spree/core/testing_support/factories'
 
 # include local factories
 Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each do |f|
@@ -30,11 +30,3 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
-
-Zone.class_eval do
-  def self.global
-    find_by_name("GlobalZone") || Factory(:global_zone)
-  end
-end
-
-@configuration ||= AppConfiguration.find_or_create_by_name("Default configuration")
