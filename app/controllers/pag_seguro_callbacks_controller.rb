@@ -1,5 +1,5 @@
 # encoding: utf-8
-class PagseguroController < Spree::BaseController
+class PagSeguroCallbacksController < Spree::BaseController
   skip_before_filter :verify_authenticity_token
 
   respond_to :html
